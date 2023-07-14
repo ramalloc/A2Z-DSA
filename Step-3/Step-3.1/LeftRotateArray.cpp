@@ -1,47 +1,11 @@
-#include <bits/stdc++.h>
-#include <iostream>
-using namespace std;
 
-
-
-void leftRotate(int arr[], int n, int d) {
-  d = d % n;
-
-  int temp[d];
-  for (int i = 0; i < d; i++) {
-    temp[i] = arr[i];
-  }
-
-  for (int i = d; i < n; i++) {
-    arr[i - d] = arr[i];
-  }
-
-  for (int i = n - d; i < n; i++) {
-    arr[i] = temp[i - (n - d)];
-  }
-}
-
-void printArray(int arr[], int n){
-    for(int i = 0; i < n; i++){
-        cout << arr[i] << " ";
-    }
-}
-
-int main() {
-  int n;
-  cin >> n;
-
-  int arr[n];
-  for (int i = 0; i < n; i++) {
-    cin >> arr[i];
-  }
-
-  int k;
-  cin >> k;
-
-  leftRotate(arr, n, k);
-
-  printArray(arr, n);
-
-  return 0;
-}
+// OPTIMAL
+#include <bits/stdc++.h> 
+// vector<int> rotateArray(vector<int>& arr, int n) {
+//             int temp = arr[0];
+//             for(int j = 1; j < n; j++){
+//                 arr[j-1] = arr[j];
+//             }
+//             arr[n-1] = temp;
+//             return arr;
+// }
