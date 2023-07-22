@@ -13,8 +13,15 @@
 //     }
 //   }
 // }
+// Time Complexity - O(N) * O(N)
+
 
 // BETTER
+/* Here We are using hash table
+   first we take a hash array with size of (n+1) and marked them with 0 in data at all indexes.
+   Then we runs a loop 1 to n, In which we marked 1 at the indexe of given array's element --> hash[a[i]] = 1.
+   Then we runs a loop to check in the hash that at which index marked as 0 and return that index;
+*/
 
 // int missingNumber(vector<int> &a, int N) {
 //   int hash[N + 1] = {0};
@@ -28,6 +35,8 @@
 //       }
 //   }
 // }
+//  Time Complexity - O(N) + O(N) -> O(2N)
+//  Space Complexity - O(N) , for hash array
 
 // OPTIMAL
 // There are two optimal solutions
