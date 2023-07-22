@@ -15,7 +15,6 @@
 // }
 // Time Complexity - O(N) * O(N)
 
-
 // BETTER
 /* Here We are using hash table
    first we take a hash array with size of (n+1) and marked them with 0 in data at all indexes.
@@ -62,6 +61,10 @@
 // cout << (sum-s2);
 // return 0;
 // }
+// // Time Complexity - O(N)
+// // Space Complexity - O(1)
+
+
 
 // 2.XOR => XOR of same numbers returns 0, And XOR of any number with 0 returns the number
 
@@ -76,18 +79,23 @@
 //     }
 
 //     return (xor1^xor2);
+// Time Complexity - O(2N)
+
 
 // OR
 
-int xor1 = 0;
+// int xor1 = 0;
 
-    int xor2 = 0;
-    for(int i = 0; i < N-1; i++){
-        xor2 = xor2^a[i];
-        xor1 = xor1 ^ (i+1);
-    }   
-    // xor with N because in upper loop xor1 doesn't happened for 
-    //the last value, It goes to the only N-1
-    xor1 = xor1 ^ N;
+// int xor2 = 0;
+// for (int i = 0; i < N - 1; i++)
+// {
+//     xor2 = xor2 ^ a[i];
+//     xor1 = xor1 ^ (i + 1);
+// }
+// xor with N because in upper loop xor1 doesn't happened for
+// the last value, It goes to the only N-1
+// xor1 = xor1 ^ N;
 
-    return (xor1^xor2);
+// return (xor1^xor2);
+// return (xor1^xor2);
+// Space Complexity - O(N)
