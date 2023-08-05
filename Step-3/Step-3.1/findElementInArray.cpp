@@ -97,5 +97,5 @@
 // xor1 = xor1 ^ N;
 
 // return (xor1^xor2);
-// return (xor1^xor2);
-// Space Complexity - O(N)
+// Time Complexity - O(N)
+// Space Complexity - O(1)
