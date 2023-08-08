@@ -14,13 +14,16 @@ vector<int> alternateNumbers(vector<int>&a) {
     int n = a.size();
     int pos[n/2] = {0};
     int neg[n/2] = {0};
-
+    int posIndex = 0;
+    int negIndex = 0;
     for(int i = 0; i < n; i++){
         if(a[i] < 0){
-            neg[i] = a[i];
+            neg[negIndex] = a[i];
+            negIndex++;
         }
         else{
-            pos[i] = a[i];
+            pos[posIndex] = a[i];
+            posIndex++;
         }
     }
 
@@ -97,7 +100,7 @@ void posAndNeg(vector<int> &a)
             a[2*i] = pos[i];
             a[2*i+1] = neg[i];
         }
-        int index = neg.size() * 2;
+        int index = neg.size() * 2; // Index for the iteration of the main array.
         for(int i = neg.size(); i < pos.size(); i++{ // Iterating positive Vector for the remaining values
             a[index] = pos[i];
         }
@@ -108,7 +111,7 @@ void posAndNeg(vector<int> &a)
             a[2*i+1] = neg[i];
         }
         int index = pos.size() * 2;
-        for(int i = pos.size(); i < neg.size(); i++{ // Iterating Negative Vector for the remaining values
+        for(int i = pos.size(); i < neg.size(); i++){ // Iterating Negative Vector for the remaining values
             a[index] = neg[i];
         }
     }

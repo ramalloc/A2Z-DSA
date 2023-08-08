@@ -3,7 +3,7 @@
 // BETTER
 
 // OPTIMAL 
-/* KADANE'S ALGORITHM - It states that start adding from the index zero of the array till the end of it.But ander some conditions :-
+/* KADANE'S ALGORITHM - It states that start adding from the index zero of the array till the end of it.But under some conditions :-
     1. Make a {sum} variable which sums the elements  in a loop, Add the first element in sum 
     2. And if sum remained less than the zero then mark the value of {sum} equals to Zero.
     3. Mark {maxi} = {sum}, If {sum > maxi}

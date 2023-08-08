@@ -29,10 +29,10 @@ which works in O(N) time complexity and O(1) space complexity.
 */
 
 // int majorityElement(vector<int> v) {
-// 	int count = 0;
+// 	int vote = 0;
 // 	int elm;
 // 	for(int i = 0; i < v.size(); i++){
-// 		if(count == 0){
+// 		if(vote == 0){
 // 			vote = 1;
 // 			candidate = v[i];
 // 		}
