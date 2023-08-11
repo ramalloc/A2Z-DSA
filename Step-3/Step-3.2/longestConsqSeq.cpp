@@ -23,6 +23,8 @@ int longestSuccessiveElements(vector<int>&a) {
             x = x+1;
             count++;
         }
+
+        longest = max(count, longest)
     }
 }
 */
@@ -31,7 +33,7 @@ int longestSuccessiveElements(vector<int>&a) {
 // BETTER
 /*
 1. Sort the array.
-2. Create a vriable {lastSnaller} = INT_MIN; longest = 0; countCurrent = 0;
+2. Create a vriable {lastSnmaller} = INT_MIN; longest = 0; countCurrent = 0;
 */
 
 /*
