@@ -2,7 +2,7 @@
 // int missingNumber(vector<int> &a, int N) {
 //   for (int i = 1; i <= N; i++) {
 //     int flag = 0;
-//     for (int j = 0; j <= N - 1; j++) {
+//     for (int j = 0; j <= N - 1; j++) { // We are traversing {N-1} beacuse we have N-1 elements in the given array
 //       if (a[j] == i) {
 //         flag = 1;
 //         break;
