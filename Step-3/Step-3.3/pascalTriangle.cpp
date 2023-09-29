@@ -24,22 +24,22 @@ for ⁷C₂ =   7!
          2! X (7-2)!
 
     =>      7x6x(5)!
-         ---------------   
+         ---------------
             2! X (5)!
-    
+
                 7x6
-     =>    -----------  => 
-                2! 
+     =>    -----------  =>
+                2!
 */
 // 1.So we can see here that 5! is cutting from numerator and denominator.
 // 2. We can also see that 7! is going to numberof iteration of r.
 /* -> Impt. thing to take care =>      7x6
-                                    -----------  
+                                    -----------
                                         2x1
 
                             =>          7     6
                                        --- X ---
-                                        1     2 
+                                        1     2
 */
 
 /*
@@ -69,7 +69,60 @@ int main(){
 
     return 0;
 }
-*/ 
+*/
 
 // Time Complexity -> O(r)
 // Space Complexity -> O(1)
+
+/* <-- Printing Nth Row of Pascales Triangle -->*/
+// We can observe that no. of elements is equals to the no. of rows.
+
+// BRUTE FORCE
+// We call the nCr() N times to get the element at each and every index.
+// This will take O(N*r) Time Complexity
+
+// OPTIMIZE
+// In order to print the Nth row We can observe that 1st and last element is alsways 1.
+// So we have to print the others.
+
+/*
+N = 6;
+int ans = 1;
+cout << ans;
+for(int i = 1; i < N; i++){
+    ans = ans*(n-i);
+    anns = ans / i;
+    cout << ans;
+}
+cout << "1";
+*/
+
+
+
+/* -- Printing The whole pascale triangle upto Nth Row--*/
+
+/*
+vector<int> generateRow(int row) {
+  vector<int> ansRow;
+  long long ans = 1;
+  ansRow.push_back(1);
+
+  for (int col = 1; col < row; col++) {
+    ans = ans * (row - col);
+    ans = ans / col;
+    ansRow.push_back(ans);
+  }
+
+  return ansRow;
+}
+vector<vector<int>> pascalTriangle(int N) {
+  vector<vector<int>> ansVec;
+
+  for (int i = 1; i <= N; i++) {
+    vector<int> tempAns = generateRow(i);
+    ansVec.push_back(tempAns);
+  }
+
+  return ansVec;
+}
+*/
