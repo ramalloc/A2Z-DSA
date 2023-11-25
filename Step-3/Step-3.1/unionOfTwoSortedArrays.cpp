@@ -1,3 +1,11 @@
+/*
+1. First we iterate both arrays together then we iterate the remaning array individually.
+2. If arr[i] < arr[j] then we kept the element in Union but We have to check that the element haven't been already in the 
+    union, therefore we use this line of code -> {unionArray.back() != a[i]}.
+3. But if the union is empty then it will show always that the element is not there, therefore we use this line of code ->
+     unionArray.size() == 0 .
+*/
+/*
 #include <iostream>
 #include <bits/stdc++.h>
 vector < int > sortedArray(vector < int > &a, vector < int > &b) {
@@ -6,7 +14,6 @@ vector < int > sortedArray(vector < int > &a, vector < int > &b) {
     int i = 0;
     int j = 0;
     vector<int> unionArray;
-
     while(i < n1 && j< n2){
         if(a[i] <= b[j]){
             if(unionArray.back() != a[i] || unionArray.size() == 0){
@@ -50,3 +57,4 @@ int main()
     sortedArray(a1, a2);
    
 }
+*/

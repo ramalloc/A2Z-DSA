@@ -26,7 +26,13 @@
 
 
 // OPTIMAL
-
+/*
+In the optimal solution we just compare the arr1 element with element of arr2.
+1. We run a loop ffrom i and j until the size of arr1 = n and size of arr2 = m 
+2. If element of arr1 is < (lesser) than the element of arr2, then we increment i by 1;
+3. If element of arr2 is < (lesser) than the element of arr1, then we increment j by 1;
+4. Else means the element is same, So We push the element in the intersection Array.
+*/
 // #include <bits/stdc++.h>
 // vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2,
 //                                   int m) {
