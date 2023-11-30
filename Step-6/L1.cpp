@@ -15,33 +15,43 @@ public:
         this->data = data;
         this->next = NULL;
     };
+
 };
 
-void insertionAtHead(Node *&head, int value)
-{
-    Node *block = new Node(value);
+// Node *insertionAtHead(Node *&head, int value)
+// {
+//     return new Node(value, head);
+// };
+Node *insertionAtHead(Node *&head, int value)
+{   
+    Node* block = new Node(value);
     block->next = head;
     head = block;
+    return head;
 };
 
-void insertionAtTail(Node *&head, int val)
+Node* insertionAtTail(Node *&head, int val)
 {
-    Node *block = new Node(val);
-    Node *ptr = head;
-    while (ptr->next != NULL)
-    {
+   if(head == NULL){
+    Node* block = new Node(val);
+    head = block;
+    return head;
+   }
+    Node* ptr = head;
+    while(ptr->next != NULL){
         ptr = ptr->next;
     }
-    ptr->next = block;
-    block->next = NULL;
+    Node* block = new Node(val);
+    ptr-> next = block;
+   return head;
 };
 
-void insertionAtIndex(Node *&head, int val, int index)
+Node* insertionAtIndex(Node *&head, int val, int index)
 {
     if (index == 1)
     {
-        insertionAtHead(head, val);
-        return;
+        Node* head1 = insertionAtHead(head, val);
+        return head;
     }
     Node *block = new Node(val);
     Node *ptr = head;
@@ -55,8 +65,8 @@ void insertionAtIndex(Node *&head, int val, int index)
     // By this method our tail gets updated to the new and last node
     if (ptr->next == NULL)
     {
-        insertionAtTail(head, val);
-        return;
+        Node* head1 = insertionAtTail(head, val);
+        return head1;
     }
     block->next = ptr->next;
     ptr->next = block;
@@ -107,6 +117,31 @@ int serchInLl(Node *&head, int num)
     return 0;
 }
 
+Node *insertBeforeValue(Node *head, int x, int val) {
+  if (head == NULL) {
+    return head;
+  }
+  if (head->data == val) {
+    Node *block = new Node(x);
+    block->next = head;
+    head = block;
+    return head;
+  }
+  Node *ptr = head;
+  while (ptr->next != NULL) {
+    if (ptr->next->data == val) {
+      Node *block = new Node(x);
+      block->next = ptr->next;
+      ptr->next = block;
+      break;
+    } else {
+      ptr = ptr->next;
+    }
+  }
+  return head;
+};
+
+
 void printLinkedList(Node *&head)
 {
     Node *temp = head;
@@ -120,25 +155,25 @@ void printLinkedList(Node *&head)
 int main()
 {
 
-    Node *block1 = new Node(10);
+    // Node *block1 = new Node(10);
     // cout << block1->data << endl;
     // cout << block1->next << endl;
 
     // --. Insertion At Head
     // Head Pointed To
-    Node *head = block1;
+    // Node *head = block1;
 
-    insertionAtHead(head, 20);
+    // insertionAtHead(head, 20);
     // printLinkedList(head);
 
     // --. Insertion At Tail
     // Tails pointed to
-    insertionAtTail(head, 40);
+    // Node* head5 = insertionAtTail(head, 40);
     // printLinkedList(head);
 
     // Insertion At Index
-    insertionAtIndex(head, 50, 4);
-    // printLinkedList(head);
+    // Node* head4 = insertionAtIndex(head, 50, 4);
+    // printLinkedList(head4);
 
     // Convert Array into Linked List
     vector<int> arr = {1, 2, 3, 4, 5};
@@ -150,15 +185,20 @@ int main()
     // cout << lenOfLl << endl;
 
     // Searching In Linked List
-    int isData = serchInLl(head1, 6);
-    if (isData)
-    {
-        cout << "Data is present in Linked List..";
-    }
-    else
-    {
-        cout << "Data is not present in Linked List..";
-    }
+    // int isData = serchInLl(head1, 6);
+    // if (isData)
+    // {
+    //     cout << "Data is present in Linked List..";
+    // }
+    // else
+    // {
+    //     cout << "Data is not present in Linked List..";
+    // }
+
+
+    // Insert Before Data
+    Node* head2 = insertBeforeValue(head1, 9, 4);
+    printLinkedList(head2);
 
     return 0;
 }
