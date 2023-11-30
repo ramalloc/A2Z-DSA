@@ -18,10 +18,16 @@ public:
 
 };
 
-// Node *insertionAtHead(Node *&head, int value)
-// {
-//     return new Node(value, head);
-// };
+
+// Another Way to set he Head
+
+/*
+Node *insertionAtHead(Node *&head, int value)
+{
+    return new Node(value, head);
+};
+*/
+
 Node *insertionAtHead(Node *&head, int value)
 {   
     Node* block = new Node(value);
