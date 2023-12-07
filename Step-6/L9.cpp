@@ -48,3 +48,24 @@ Node* reverseLinkedList(Node *head)
 */
 // Time Complexity = O(N)
 // Time Complexity = O(1)
+
+
+// ---- Recursion Method ----
+// We break the problem in sub problem, We recursively break the LL till head != NULL or head->next != NULL and return Last Node as new head .
+// Basically we solve the problem for two nodes, We change the Link between two nodes  
+/*
+Node* reverseLinkedList(Node *head)
+{
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+    Node* newHead = reverseLinkedList(head->next);
+    Node* front = head->next;
+    front->next = head;
+    head->next = NULL;
+    return newHead;    
+}
+*/
+
+// Time Complexity = O(N)
+// Time Complexity = O(N)
