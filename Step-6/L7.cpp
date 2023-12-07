@@ -84,8 +84,10 @@ Node *sortList(Node *head) {
   one->next = secHead->next;
   two->next = NULL;
 
+  // Point headPtr to zeroHead->next which is 0's first node  
   headPtr = zeroHead->next;
 
+  // At the end free the memory 
   delete(zeroHead, oneHead, secHead);
   return headPtr;
 }
