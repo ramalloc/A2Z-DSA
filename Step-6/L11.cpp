@@ -59,3 +59,28 @@ Node *addOne(Node *head) {
 
 
 // 2. Using recursion
+/*
+int carryTracking(Node *ptr) {
+    if(ptr == NULL) return 1;
+    int carry = carryTracking(ptr->next);
+    ptr->data = ptr->data + carry;
+    if(ptr->data < 10){
+        return 0;
+    }
+    ptr->data = 0;
+    return 1;
+}
+
+Node *addOne(Node *head) {
+  int carry = carryTracking(head);
+  if (carry == 1) {
+    Node *block = new Node(1);
+    block->next = head;
+    return block;
+  }
+  return head;
+}
+*/
+
+// Time Complexity = O(N)
+// Time Complexity = O(N)
