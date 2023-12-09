@@ -32,3 +32,18 @@ Node *findMiddle(Node *head) {
 
 
 // 2. Using Turtoise and Hare Method or Slow and Fast Pointer method
+/*
+Node *findMiddle(Node *head) {
+  Node *slow = head;
+  Node *fast = head;
+
+  while(fast != NULL && fast->next != NULL){
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  return slow;
+}
+
+*/
+// Time Complexity = O(N/2) 
+// Space Complexity = O(1)
