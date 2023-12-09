@@ -31,13 +31,32 @@ Node *deleteMiddle(Node *head) {
 }
 */
 // Time Complexity = O(N) + O(N/2) 
-// Time Complexity = O(1) 
+// Space Complexity = O(1) 
 
 
 
 // 2. Using Turtoise and Hare Method
+// Here we want to that slow should stop before one Node before of middle, so we skip the one increment of slow
+/*
+Node *deleteMiddle(Node *head) {
+  if (head == NULL || head->next == NULL)
+    return NULL;
+  Node *slow = head;
+  Node *fast = head;
+  fast = fast->next->next;
+  while (fast != NULL && fast->next != NULL) {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  Node *block = slow->next;
+  slow->next = slow->next->next;
+  free(block);
 
-
+  return head;
+}
+*/
+// Time Complexity = O(N) 
+// Space Complexity = O(1) 
 
 
 
