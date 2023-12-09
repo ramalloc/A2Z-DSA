@@ -86,3 +86,38 @@ Node *findIntersection(Node *firstHead, Node *secondHead) {
 // Space Complexity = O(1)
 
 
+
+// 3. 
+/*
+When length of LL is different -> 
+-> While traversing if ptr1 reachs to NULL then it will point to opposite LL's head
+-> While traversing if ptr2 reachs to NULL then it will point to opposite LL's head
+-> Result of this thie ptr1 and ptr2 will be at the vertically alligned on Nodes
+-> Now traverse the LL simanteausly and check t1 == t2 and return one of them. 
+
+When length of LL is same ->
+-> Traverse the LL simanteausly and check t1 == t2 and return one of them. 
+
+When LL is not colliding ->
+-> Make a condition when both ptr1 and ptr2 reaches Null return nullptr
+*/
+
+/*
+Node *findIntersection(Node *firstHead, Node *secondHead) {
+    if(firstHead == NULL || secondHead == NULL) return NULL;
+    Node* ptr1 = firstHead;
+    Node* ptr2 = secondHead;
+    while(ptr1 != ptr2){
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->next;
+
+        if(ptr1 == ptr2) return ptr1;
+
+        if(ptr1 == NULL) ptr1 = secondHead;
+        if(ptr2 == NULL) ptr2 = firstHead;
+    }
+    return ptr1;
+}
+*/
+// Time Complexity = O(N1) + O(N2) ~ O(2N)
+// Space Complexity = O(1)
