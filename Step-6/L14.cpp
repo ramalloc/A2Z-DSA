@@ -26,3 +26,23 @@ bool detectCycle(Node *head)
 
 
 
+// 2. Tutoise and Hare or Slow and Fast Method
+/*
+#include <bits/stdc++.h>
+bool detectCycle(Node *head)
+{   
+    if(head == NULL || head->next == NULL) return false;
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+        if(slow == fast){
+            return true;
+        }
+    }
+    return false;
+}
+*/
+// Time Complexity = O(N)
+// Space Complexity = O(1)
