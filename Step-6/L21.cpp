@@ -11,3 +11,60 @@
 
 -> ptr == head then its our first k group
 */
+
+
+/*
+
+Node *reverseLL(Node *ptr1) {
+    Node* ptr = ptr1;
+    Node* prev = NULL;
+
+    while(ptr != NULL){
+        Node* front = ptr->next;
+        ptr->next = prev;
+        prev = ptr;
+        ptr = front;
+    }
+    return prev;
+}
+
+Node *findKthNode(Node *ptr,int k) {
+    k-= 1;
+  while (ptr != NULL && k > 0) {
+    k--;
+    ptr = ptr->next;
+  }
+  return ptr;
+}
+
+Node *kReverse(Node *head, int k) {
+  Node *ptr = head;
+  Node *nextNode = NULL;
+  Node *prevNode = NULL;
+
+  while (ptr != NULL) {
+    Node *kthNode = findKthNode(ptr, k);
+    if (kthNode == NULL) {
+      // When no k group Node ahead
+      //   if there is prevNode then point next to ptr
+      if (prevNode) {
+        prevNode->next = ptr;
+      }
+      break;
+    }
+    nextNode = kthNode->next;
+    // We set the kthNode->next = NULL so that reverse function get the NULL and stops there
+    kthNode->next = NULL;
+    reverseLL(ptr);
+
+    // for first k group
+    if (ptr == head) {
+      head = kthNode;
+    } else {
+      prevNode->next = kthNode;
+    }
+    prevNode = ptr;
+    ptr = nextNode;
+  }
+  return head;
+}*/
