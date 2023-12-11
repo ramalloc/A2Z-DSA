@@ -68,3 +68,6 @@ Node *kReverse(Node *head, int k) {
   }
   return head;
 }*/
+
+// Time Complexty = O(2N)
+// Space Complexty = O(1)
