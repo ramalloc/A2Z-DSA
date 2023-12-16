@@ -51,3 +51,79 @@ int lowerBound(vector<int> arr, int n, int x) {
 // Time Complexity = O(1)
 
 
+
+// --- Upper Bound --
+/*
+Smallest index such that arr[index] > x
+*/
+/* 
+example = arr[] = [3, 4, 6, 8, 9, 12, 22];
+1. if x = 4;
+upper bound  = 2, because 6 > x
+2. x = 12
+upper bound  = 6, because 22 > x
+
+if therse is no answer or lower bound found then we will return sizeof array as last hypothetical index 
+*/
+/*
+int upperBound(vector<int> &arr, int x, int n){
+	int low = 0; 
+	int high = n-1; 
+
+	int ans = n;
+
+	while(low <= high){
+		int mid = (low + high) / 2;
+		if(arr[mid] > x){
+			ans = mid;
+			high = mid - 1;
+		}
+		else{
+			low = mid + 1;
+		}
+	}
+
+	return ans;
+
+}
+*/
+
+// OR
+
+/*
+
+#include <bits/stdc++.h>
+int upperBound(vector<int> &arr, int x, int n) {
+  int ans = upper_bound(arr.begin(), arr.end(), x) - arr.begin();
+  return ans;
+}*/
+
+
+
+
+
+//  -- Search Insert Position --
+// We are returning lower bound here
+/*
+int searchInsert(vector<int>& arr, int m)
+{	
+	int n = arr.size();
+	int low = 0;
+	int high = n-1;
+	int ans = n;
+
+	while(low <= high){
+		int mid = (low + high)/2;
+		if(arr[mid] >= m){
+			ans = mid;
+			high = mid - 1;
+		}
+		else{
+			low = mid + 1;
+		}
+	}
+
+	return ans;
+}
+*/
+
