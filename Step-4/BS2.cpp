@@ -127,3 +127,54 @@ int searchInsert(vector<int>& arr, int m)
 }
 */
 
+
+
+// -- Floor and Ceil in Sorted Array
+/*
+Floor -> The larget number in array <= x
+Ceil -> The smallest number in the array >= x
+*/
+/*
+#include<bits/stdc++.h>>
+int floor(vector<int> arr, int n, int x) {
+  int low = 0;
+  int high = n - 1;
+  int ans = -1;
+  while (low <= high) {
+    int mid = (low + high) / 2;
+    if (arr[mid] <= x) {
+      ans = arr[mid];
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return ans;
+}	
+
+int ceil(vector<int> arr, int n, int x) {
+  int low = 0;
+  int high = n - 1;
+  int ans = -1;
+  while (low <= high) {
+    int mid = (low + high) / 2;
+    if (arr[mid] >= x) {
+      ans = arr[mid];
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+  return ans;
+}
+
+pair<int, int> getFloorAndCeil(vector<int> &arr, int n, int x) {
+	int floorAns = floor(arr, n, x);
+	int cielAns = ceil(arr, n, x);
+	return make_pair(floorAns, cielAns);
+}
+*/
+
+// Time Complexity = O(N)
+// Time Complexity = O(1)
+
