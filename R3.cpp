@@ -20,10 +20,10 @@ int sumOfNumsFun(int n){
 
 
 // Factroial of N
-int factOfNUm(int n){
+int factOfNum(int n){
     if(n == 0) return 1;
 
-    return n * factOfNUm(n-1);
+    return n * factOfNum(n-1);
 }
 int main(){
     int n;
@@ -37,6 +37,6 @@ int main(){
 
 
     // Factorial of a Number
-    cout << "factorial of number " << n << "is : " << factOfNUm(n);
+    cout << "factorial of number " << n << "is : " << factOfNum(n);
     return 0;
 }
