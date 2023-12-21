@@ -20,8 +20,13 @@ void printSubSeq(int arr[], vector<int> &store, int i, int n){
         return;
     }
     store.push_back(arr[i]);
+
+    // Belwo we are deailng with take condition, when we take the value at index 
     printSubSeq(arr, store, i+1, n);
+
+    // Removing the last element for to not take condition
     store.pop_back();
+    // Below will deal with the not take and miscllaneous condition
     printSubSeq(arr, store, i+1, n);
 }
 
@@ -33,3 +38,6 @@ int main(){
 
     return 0;
 }
+
+// Time Complexity = O(2^n + n)
+// Space Complexity = O(n)
