@@ -41,8 +41,8 @@ int floorSqrt(int n)
         }
 
         // At the end one of the high and one of the low will always points to answer
-        // High always points to lowest value or integer sqrt value
-        // and low points to greater value than sqrt value
+        // High always points to nearest minimum value or perfect sqrt of sqrt of number.
+        // low will always points to nearest maximum value of sqrt of number.
 
         // low points to not possible number
         // high points to possible number
