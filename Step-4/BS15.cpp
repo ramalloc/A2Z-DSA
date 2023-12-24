@@ -71,3 +71,118 @@ int leastWeightCapacity(vector<int> &weights, int d)
 
 
 
+// OPTIMAL
+
+/*
+#include <bits/stdc++.h>
+
+int daysToShipAllProduct(vector<int> wt, int cap, int n){
+    // Initially when day is 1 and no load on ship 
+    int day = 1; 
+
+    // Load tracks the previous load on ship as well
+    int load = 0;
+
+    // Now we will load the products into the ship by loop
+    for(int i = 0; i < n; i++){
+        // But while loading to the ship, If The weight of product and load 
+        // of the ship exceeds the capacity of the ship.  
+        // We will got to next day and load the product into the ship next day.
+
+        if(load + wt[i] > cap){
+            day = day + 1;
+            load = wt[i];
+        }
+        else{
+            // Else If the load of previous products + weight of the product
+            // is not exceeding the capacity of ship then we will add the weight
+            //  of the product into the load or we will load the product .
+            load += wt[i];
+        }
+    }
+    return day;
+}
+
+int leastWeightCapacity(vector<int> &weights, int d)
+{
+    int n = weights.size();
+    int maxCap = 0;
+    int minCap = INT_MIN; 
+    for(int i = 0; i < n; i++){
+        minCap = max(minCap, weights[i]);
+        maxCap += weights[i];
+    }
+
+    int low = minCap; 
+    int high = maxCap; 
+    while(low <= high){
+        int mid = (low + high) / 2;
+        int daysReq = daysToShipAllProduct(weights, mid, n);
+        if(daysReq <= d){
+            high = mid - 1;
+        }
+        else{
+            low = mid + 1;
+        }
+    }
+
+    return low;
+    
+}
+*/
+
+
+// OR
+
+/*
+#include <bits/stdc++.h>
+
+int daysToShipAllProduct(vector<int> wt, int cap, int n){
+    // Initially when day is 1 and no load on ship 
+    int day = 1; 
+
+    // Load tracks the previous load on ship as well
+    int load = 0;
+
+    // Now we will load the products into the ship by loop
+    for(int i = 0; i < n; i++){
+        // But while loading to the ship, If The weight of product and load 
+        // of the ship exceeds the capacity of the ship.  
+        // We will got to next day and load the product into the ship next day.
+
+        if(load + wt[i] > cap){
+            day = day + 1;
+            load = wt[i];
+        }
+        else{
+            // Else If the load of previous products + weight of the product
+            // is not exceeding the capacity of ship then we will add the weight
+            //  of the product into the load or we will load the product .
+            load += wt[i];
+        }
+    }
+    return day;
+}
+
+int leastWeightCapacity(vector<int> &weights, int d)
+{
+    int n = weights.size();
+    int low = *max_element(weights.begin(), weights.end()); 
+    int high = accumulate(weights.begin(), weights.end(),0); 
+    while(low <= high){
+        int mid = (low + high) / 2;
+        int daysReq = daysToShipAllProduct(weights, mid, n);
+        if(daysReq <= d){
+            high = mid - 1;
+        }
+        else{
+            low = mid + 1;
+        }
+    }
+
+    return low;
+    
+}
+*/
+
+// Time Complexity = O(Log(maxCap - minCap)) * O(N)
