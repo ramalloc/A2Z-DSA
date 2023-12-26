@@ -41,7 +41,7 @@ int missingK(vector < int > vec, int n, int k) {
 -> So we will have to got numbers missing till all the element which is {arr[mid] - [mid+1]};
 -> If missing number is less than k then we will set low = mid + 1;
 -> Else high = mid - 1;
--> At the end when high crosees low, It can be possible that high points to out of the array.
+-> At the end when high crosees low, It can be possible that high points to out of the array (-1).
 -> high points somewhere in the array. Now at that high missing number is arr[high] - (high+1).
 -> And from the arr[high] we need more to find the kth missing element, So the more is (k - missing).
 -> And our missing element is arr[high] + more
