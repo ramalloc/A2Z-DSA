@@ -59,3 +59,47 @@ int findLargestMinDistance(vector<int> &boards, int k)
 /*
 -> Split the array in k sub arrays and ensure that each subarray has atleast one element such that maximum subarray's sum is minimum.
 */
+/*
+#include <bits/stdc++.h>
+
+int noOfSubArray(vector<int> arr, int maxSum, int n){
+    // In First sub array initially the sumof elements in subarray is 0
+    int subArray = 1;
+    long long sumOfElements = 0;
+
+    for(int i = 0; i < n; i++){
+        if(sumOfElements + arr[i] <= maxSum){
+            sumOfElements += arr[i];
+        }
+        else{
+            subArray++;
+            sumOfElements = arr[i];
+        }
+    }
+    return subArray;
+}
+
+int largestSubarraySumMinimized(vector<int> a, int k) {
+    int n = a.size();
+    // If no. of sub array is greater than array then return -1
+    if(k > n) return -1;
+
+    // The minimum sum of sub array can be formed is from max of arr 
+    int low = *max_element(a.begin(), a.end());
+    // Highest sum of an sub array can be sum of all elements of arr
+    int high = accumulate(a.begin(), a.end(), 0);
+
+    while(low <= high){
+        int mid = low + (high - low)/2;
+        int subArray = noOfSubArray(a, mid, n);
+        if(subArray > k){
+            low = mid + 1;
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+*/
+// Time Complexity = O(Log(sum - max)) * O(N)
