@@ -73,3 +73,61 @@ int findPages(vector<int>& arr, int n, int m) {
 
 
 
+// OPTIMAL
+/*
+#include<bits/stdc++.h>
+
+int noOfSdt(vector<int> &arr, int page, int n){
+    // Initially Student 1 holding 0 pages
+    int student = 1; 
+    long long curntPageToSdt = 0;
+
+    // Iterating the Pages of Books
+    for(int i = 0; i < n; i++){
+        // We will allocate the pages to the student only if the summision 
+        // of present pages assigned to student with current pages of book is 
+        // less than the given pages
+        if(curntPageToSdt + arr[i] <= page){
+            curntPageToSdt += arr[i];
+        }
+        // If present student can't hold the books more than the given pages 
+        // We will move to next student and give the pages of that book
+        // to that student
+        else{
+            student += 1;
+            curntPageToSdt = arr[i];
+        }
+    }
+    return student;
+}
+
+int findPages(vector<int>& arr, int n, int m) {
+    // If no. of students > no. of books
+    if(m > n) return -1;
+    // Settign low to maximum page book
+    int low = *max_element(arr.begin(), arr.end());
+    // Setting high to sum of pages in array
+    int high = accumulate(arr.begin(), arr.end(), 0);
+
+    while(low <= high){
+        int mid = low + (high - low)/2;
+        // Calculating the no. of student at the given page(mid)
+        int students = noOfSdt(arr, mid, n);
+        // If no. of students > given students then means 
+        // we should increase the maximum pages (mid)
+        if(students > m){
+            // If the no. of students is more than given stdunts
+            // then we need to increase the no. of pages
+            //  or increase the low
+            low = mid + 1;
+            // At the end low points to answer
+        }
+        else{
+            high = mid - 1;
+        }
+    }
+
+    return low;
+}
+*/
+// Time Complexity = O(Log(sum - max)) * O(N)
