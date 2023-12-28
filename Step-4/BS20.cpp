@@ -99,3 +99,48 @@ double minimiseMaxDistance(vector<int> &arr, int k) {
 -> Now we we check in the PO for max section Length, put new station there and updates the howMany(howMany[i] + 1) also update PQ
     by sectionLength / howMany[i] + 1; (element, i -1)
 */  
+
+
+
+
+
+// BETTER / USING PQ
+/*
+#include <bits/stdc++.h>
+
+double minimiseMaxDistance(vector<int> &arr, int k) {
+  	int n = arr.size();
+  	// made a vector to keep track of new gas stations placed in the particular
+  // section
+  // It is the total sections in the arr
+  	vector<int> howMany(n - 1, 0);
+	priority_queue<pair<long double, int>> pq;
+
+	// Inserting the distance b/w stations and there index
+	for(int i = 0; i < n-1; i++){
+		pq.push({arr[i+1] - arr[i], i});
+	}
+    // -> We will Iterate from 1 upto k new gas stations
+	for (int newGas = 1; newGas <= k; newGas++) {
+		// get the top element which is maxDist and store it and pop the top
+		auto tp = pq.top();
+		pq.pop();
+		// Store index of the top -> tp
+		int index = tp.second;
+		// update howMany arr, increment the element at the index where max occurs
+		howMany[index]++;
+
+		// Now we will put the gas station in the sectionLength in PQ
+		// int that particular index
+		long double initDiff = (arr[index+1] - arr[index]);
+		long double newSectionLength = initDiff / (long double)(howMany[index]+1);
+		pq.push({newSectionLength, index});
+
+  }
+
+	// returnin PQ top first
+	return pq.top().first;
+}
+*/
+// Time Complexity = O(N LogN + K LogN)
+// Space COmplexity = O(N-1)
