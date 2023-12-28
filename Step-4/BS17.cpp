@@ -6,7 +6,7 @@
 -> We have given an array which consists N Stalls, and we have given each Stalls Cordinates as element in the array and given no. of cows.
 -> Task is to place each cow in such a way the minimum distance between two cows is the maximum.
 -> Means We should return the Minimum Distance between two cows which should be the Maximum in the Minimum Distances.  
--> The minimum distance can be any of combination of between two cows.
+-> The minimum distance can be any of combination of between two stalls in a consecutive order.
 
 -> So we sort the array, now we will place the cows in any order at any place in the given stalls to get the maximum of minimums.
 -> We will find the distance between two consecutive Stalls if the any stalls which have minimum distance between each other
@@ -22,7 +22,7 @@
     or equal to the maintanable_distance.
 -> Now we will increase the maintanable_distance by 1 = 2, and again we will put the cows in stalls such that the 
     distance bewteen two stalls should not be less than the maintanable_distance.
--> And if there any maintanable_distance in which iteration we will nnot be able to place all the cows then we will stop the iteration. 
+-> And if there any maintanable_distance in which iteration we will not be able to place all the cows then we will stop the iteration. 
     and will not check further and the previous will be the maximum of minimum distance
 */
 
@@ -115,6 +115,7 @@ int aggressiveCows(vector<int> &stalls, int k) {
   int high = stalls[n - 1] - stalls[0];
 
   while (low <= high) {
+    // Here mid is the minimum distance in which stalls separated
     int mid = low + (high - low) / 2;
     if (isPlaced(stalls, k, mid, n)) {
       // Looking for maximum of minium distances
