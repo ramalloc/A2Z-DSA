@@ -144,3 +144,53 @@ double minimiseMaxDistance(vector<int> &arr, int k) {
 */
 // Time Complexity = O(N LogN + K LogN)
 // Space COmplexity = O(N-1)
+
+
+
+
+// OPTIMAL / BINARY SEARCH
+// Below there is change in normal Binary Search Patter/Structure
+/*
+-> We will do low = mid and high  = mid
+-> our low = 0; and high = maximum distance b/w gas stations
+-> 
+*/
+/*
+#include <bits/stdc++.h>
+
+int noOfStations(vector<int> arr, int n, long double maxDist){
+	int count = 0;
+	for(int i = 1; i < n; i++){
+		int gasStinBw = ((arr[i] - arr[i-1]) / maxDist);
+		if((arr[i] - arr[i-1]) / maxDist == gasStinBw * maxDist){
+			gasStinBw--;
+		}
+		count += gasStinBw;
+	}
+	return count;
+}
+
+double minimiseMaxDistance(vector<int> &arr, int k) {
+  int n = arr.size();
+  long double low = 0;
+  //   Setting High maximum distance in sections
+  long double high = 0;
+  for (int i = 0; i < n - 1; i++) {
+    high = max(high, (long double)(arr[i + 1] - arr[i]));
+  }
+
+  long double diff = 1e-6;
+  while (high - low > diff) {
+    long double mid = (low + high) / (2.0);
+    int count = noOfStations(arr, n, mid);
+    //   If no. of gas stations placed > given gas stations
+    if (count > k) {
+      // then we will increase the mid
+      low = mid;
+    } else {
+      high = mid;
+    }
+  }
+  return high;
+}
+*/
