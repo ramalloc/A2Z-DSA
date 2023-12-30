@@ -194,3 +194,4 @@ double minimiseMaxDistance(vector<int> &arr, int k) {
   return high;
 }
 */
+// Time Complexity = O(log(min(n1, n2)))
