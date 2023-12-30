@@ -8,6 +8,7 @@
 -> If the no. elements in combined array is Odd then we can simply return mid 
 */
 
+
 /*
 double median(vector<int> &a, vector<int> &b) {
   int n = a.size();
@@ -53,6 +54,7 @@ if (newN % 2 == 1){
 -> If any of them is lesser than others then we will increment count and stores the element
 -> If count encounters with index1 or index1 then we save the elements of that
 */
+
 /*
 double median(vector<int> &a, vector<int> &b) {
   int n1 = a.size();
@@ -140,4 +142,73 @@ double median(vector<int> &a, vector<int> &b) {
 -> Or determine wheather to move right and eliminate left half in arr1. So if (l2 > r2) we eliminate left half and move right.
 -> It is better if perform Binary Search on Smaller Array for less time Complexity
 -> mid1; mid2 = arr2.size() - mid1
+*/
+/*
+For Odd
+-> median = (n1 + n2 + 1) / 2
+-> median = max(l1, l2)
+*/
+
+
+/*
+double median(vector<int> &a, vector<int> &b) {
+  int n1 = a.size();
+  int n2 = b.size();
+  int n = n1 + n2;
+  // If n1 > n2 then we call the funciton again for min size arr  
+  if(n1 > n2) return median(b, a);
+  // We are taking smaller array for binary search which is (a)
+  int low = 0; 
+  int high = n1;
+  // total no. of element required in the left
+  int left = (n1 + n2 + 1)/2;
+  while(low <= high){
+    int mid1 = low + (high - low) / 2;
+    // the remaining elements required in left from arr2
+    int mid2 = left - mid1;
+    // Now we will initialize l1 and l2, r1 and r2
+    int l1 = INT_MIN;
+    int l2 = INT_MIN;
+    int r1 = INT_MAX;
+    int r2 = INT_MAX;
+
+    // Now we will assign values to r1 and r2, l1 and l2 from array
+// mid1 can exceed the array therefore we checked below before assigning r1 and r2
+    if(mid1 < n1){
+      r1 = a[mid1];
+    }
+    if(mid2 < n2){
+      r2 = b[mid2];
+    }
+// mid2 can go below the size of array therefore we checked below before assigning
+// l1 and l2
+    if(mid1-1 >= 0){
+      l1 = a[mid1-1];
+    }
+    if(mid2-1 >= 0){
+      l2 = b[mid2-  1];
+    }
+
+    // Possible answer
+    if(l1 <= r2 && l2 <= r1){
+      // if n is odd
+      if(n % 2 == 1){
+        // Answer will be maximum from l1 and l2
+        return max(l1, l2);
+      }
+      // If n is even
+      else{
+        return (double)(max(l1, l2) + min(r1, r2)) / 2.0;
+      }
+    }
+    else if (l1 > r2){
+      high = mid1 - 1;
+    }
+    else{
+      low = mid1 + 1;
+    }
+  }
+  return 0; 
+}
+  
 */
